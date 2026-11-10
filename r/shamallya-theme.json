@@ -22,6 +22,6 @@
       "target": "~/tailwind.shamallya.ts"
     }
   ],
-  "docs": "Installs @shamallya-ui/tokens 0.5.0. Import its CSS before Tailwind (tokens.css, then themes/slate-teal), and tailwind.config presets: [tokensPreset, shamallya] from ./tailwind.shamallya. Import src/styles/shamallya-mapping.css once. Tailwind 3.4.",
+  "docs": "Installs @shamallya-ui/tokens 0.5.0. Setup (verified on a fresh Vite + React + TypeScript + Tailwind 3.4 project): 1) alias @ to src in tsconfig paths and vite resolve.alias; 2) import '@shamallya-ui/tokens/css', then '@shamallya-ui/tokens/themes/slate-teal' (optional), then ./styles/shamallya-mapping.css, then your Tailwind CSS, in that order; 3) tailwind.config presets: [tokensPreset, shamallya] where tokensPreset is '@shamallya-ui/tokens/tailwind' and shamallya is ./tailwind.shamallya; 4) set data-brand='slate-teal' and data-density='comfortable' on the root, and use viewport-fit=cover in the viewport meta for the safe-area insets.",
   "type": "registry:file"
 }
