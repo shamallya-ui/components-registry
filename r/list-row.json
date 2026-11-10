@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "list-row",
+  "title": "List row",
+  "description": "Link row for a grouped list card (KMP-C8).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/list-row.tsx",
+      "content": "import { ChevronRight } from \"lucide-react\";\nimport { cn } from \"@/lib/cn\";\n\n// KMP-C8 (specs/KMP-C8-list-row.md). A link row inside a grouped list card (KMP-C7), the whole row one target.\n// Trailing content is one of: page number, chevron. Names, meta and page are announced in reading order with commas.\n// Hover underlines the name, pressed fills (sunken on a plain card, raised on a name-only card), focus ring is inside (conventions 4.1).\n\nexport type ListRowProps = {\n  href: string;\n  name: string;\n  nameLang?: string;\n  /** Secondary line, for example \"ingredients matched: coconut\". Not rendered when empty. */\n  meta?: string;\n  /** Page digits as given (\"44\"). Shown \"p. 44\", announced \"page 44\". When present it replaces the chevron. */\n  page?: string;\n  /** Which card the row sits in: decides the pressed fill and the chevron colour. */\n  ground?: \"plain\" | \"name-only\";\n  onClick?: React.MouseEventHandler<HTMLAnchorElement>;\n};\n\n// inline, not absolute: keeps the hidden text in the accessible name with ordinary spacing\nconst hidden = \"[clip-path:inset(50%)]\";\n\nexport function ListRow({ href, name, nameLang, meta, page, ground = \"plain\", onClick }: ListRowProps) {\n  const onSunken = ground === \"name-only\";\n  const hasMeta = !!meta && meta.trim() !== \"\";\n  return (\n    <a\n      href={href}\n      onClick={onClick}\n      className={cn(\n        \"group flex min-h-control items-center justify-between gap-gap-md px-inset-md py-3 font-body leading-normal no-underline\",\n        onSunken ? \"active:bg-surface-raised\" : \"active:bg-surface-sunken\",\n        \"focus-visible:outline focus-visible:outline-ring focus-visible:outline-offset-ring-inside focus-visible:outline-focus-ring\",\n      )}\n    >\n      <span className=\"min-w-0 flex-1\">\n        <span lang={nameLang} className=\"block text-ui-body font-medium text-text [overflow-wrap:anywhere] group-hover:underline\">\n          {name}\n          {(hasMeta || page) && <span className={hidden}>,</span>}\n        </span>\n        {\" \"}\n        {hasMeta && (\n          <span className=\"block text-ui-floor font-regular text-text-muted [overflow-wrap:anywhere]\">\n            {meta}\n            {page && <span className={hidden}>,</span>}\n          </span>\n        )}\n        {hasMeta && \" \"}\n      </span>\n      {\" \"}\n      {page ? (\n        <span className=\"block shrink-0 text-ui-floor font-regular text-text-muted\">\n          <span aria-hidden=\"true\">p.</span>\n          <span className=\"sr-only\">page</span> {page}\n        </span>\n      ) : (\n        <ChevronRight\n          aria-hidden=\"true\"\n          className={cn(\"size-icon-lg shrink-0 group-active:text-text-muted\", onSunken ? \"text-text-muted\" : \"text-text-subtle\")}\n        />\n      )}\n    </a>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

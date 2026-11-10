@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "frozen-week-block",
+  "title": "Frozen-week block",
+  "description": "Constant-copy block for the current week (KMP-C14).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/frozen-week-block.tsx",
+      "content": "import { useId } from \"react\";\nimport { ArrowRight } from \"lucide-react\";\n\n// KMP-C14 (specs/KMP-C14-frozen-week-block.md). Stands where Regenerate stands on next week. The copy is constant:\n// it has no prop, so it cannot vary with the day or with whether next week was viewed.\n\nexport const FROZEN_WEEK_COPY = \"This week is planned and shopped for. Changes start from Monday.\";\nexport const FROZEN_WEEK_ACTION = \"Plan next week\";\n\nexport function FrozenWeekBlock({ href }: { /** Where \"Plan next week\" goes (next week, generated on arrival). */ href: string }) {\n  const id = useId();\n  return (\n    <div className=\"flex flex-col items-start gap-stack-sm rounded-control border-bw-default border-border bg-surface-raised p-inset-md font-body text-ui-reading leading-normal\">\n      <p id={id} className=\"font-regular text-text\">\n        {FROZEN_WEEK_COPY}\n      </p>\n      <a\n        href={href}\n        aria-describedby={id}\n        className=\"inline-flex min-h-control items-center gap-gap-sm rounded-control px-inset-md font-semibold text-primary-text underline hover:text-text active:text-text focus-visible:outline focus-visible:outline-ring focus-visible:outline-offset-ring focus-visible:outline-focus-ring\"\n      >\n        {FROZEN_WEEK_ACTION}\n        <ArrowRight aria-hidden=\"true\" className=\"size-icon-sm shrink-0\" />\n      </a>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

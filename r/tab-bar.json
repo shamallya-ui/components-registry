@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tab-bar",
+  "title": "Tab bar",
+  "description": "Three-link bottom navigation (KMP-C1).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/tab-bar.tsx",
+      "content": "import { CalendarDays, CalendarRange, Search } from \"lucide-react\";\nimport { cn } from \"@/lib/cn\";\n\n// KMP-C1 (specs/KMP-C1-tab-bar.md). Exactly three tabs as links in a navigation list: not ARIA tabs, no badges, no disabled state.\n// `active` is fed by navigation state (a Dish screen opened from Search keeps Search lit). Bottom padding adds the platform inset (conventions 15).\n// Sticky at the bottom of its scroll container so it keeps its own space; the page needs no separate reserve.\n\nexport type TabId = \"today\" | \"week\" | \"search\";\n\nexport type TabBarProps = {\n  active: TabId;\n  hrefs: Record<TabId, string>;\n  onNavigate?: (tab: TabId, event: React.MouseEvent<HTMLAnchorElement>) => void;\n  /** Landmark name (Q: \"Main\"). */\n  label?: string;\n  labels?: Record<TabId, string>;\n};\n\nconst tabs = [\n  { id: \"today\", Icon: CalendarDays },\n  { id: \"week\", Icon: CalendarRange },\n  { id: \"search\", Icon: Search },\n] as const;\n\nexport function TabBar({ active, hrefs, onNavigate, label = \"Main\", labels = { today: \"Today\", week: \"Week\", search: \"Search\" } }: TabBarProps) {\n  return (\n    <nav\n      aria-label={label}\n      className=\"sticky bottom-0 z-sticky border-t-bw-default border-border bg-surface-raised pb-[calc(env(safe-area-inset-bottom)+var(--shamallya-semantic-space-inset-md))] font-body leading-normal\"\n    >\n      <ul role=\"list\" className=\"flex\">\n        {tabs.map(({ id, Icon }) => {\n          const on = id === active;\n          return (\n            <li key={id} className=\"flex-1\">\n              <a\n                href={hrefs[id]}\n                aria-current={on ? \"page\" : undefined}\n                onClick={(e) => onNavigate?.(id, e)}\n                className={cn(\n                  \"group flex min-h-control flex-col items-center justify-center gap-1 px-inset-sm text-center text-ui-floor [overflow-wrap:anywhere]\",\n                  // the tab's own :hover / :active, so the whole tab (icon, padding, label) underlines the label, not just the label text\n                  \"[@media(hover:hover)]:[&:hover_.tab-label]:underline [&:active_.tab-label]:underline active:bg-surface-sunken active:text-text\",\n                  \"focus-visible:outline focus-visible:outline-ring focus-visible:outline-offset-ring-inside focus-visible:outline-focus-ring\",\n                  on ? \"font-semibold text-primary-text\" : \"font-medium text-text-muted\",\n                )}\n              >\n                <Icon aria-hidden=\"true\" className={cn(\"size-icon-lg\", on ? \"stroke-icon-active\" : \"stroke-icon\")} />\n                <span className=\"tab-label\">{labels[id]}</span>\n              </a>\n            </li>\n          );\n        })}\n      </ul>\n    </nav>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

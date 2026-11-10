@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slot-card",
+  "title": "Slot card",
+  "description": "Slot card with dominant variant (KMP-C9).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/slot-card.tsx",
+      "content": "import { type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// KMP-C9 (specs/KMP-C9-slot-card.md). A plain container: h2 slot label, optional note directly after it, dish rows (KMP-C10, supplied).\n// The main meal is dominant by border, padding and type size. The other slots are never dimmed (Q-S10).\n\nexport type SlotCardProps = {\n  /** Breakfast, Snack 1, Main meal or Snack 2 (a translated build supplies its own). */\n  slot: string;\n  slotLang?: string;\n  /** \"light\", \"lunch and dinner\", \"kid-facing\". Follows the label immediately; not rendered when empty. */\n  note?: string;\n  /** Main meal. */\n  dominant?: boolean;\n  children: ReactNode;\n  className?: string;\n};\n\nexport function SlotCard({ slot, slotLang, note, dominant = false, children, className }: SlotCardProps) {\n  return (\n    <div\n      className={cn(\n        \"rounded-card bg-surface-raised font-body leading-normal\",\n        dominant ? \"border-bw-heavy border-primary-text p-card-dominant\" : \"border-bw-default border-border-card p-inset-md\",\n        className,\n      )}\n    >\n      <h2\n        lang={slotLang}\n        className={cn(\n          \"text-ui-floor font-semibold [overflow-wrap:anywhere] latin:uppercase latin:tracking-label\",\n          dominant ? \"text-primary-text\" : \"text-text-muted\",\n        )}\n      >\n        {slot}\n      </h2>\n      {note && note.trim() !== \"\" && <p className=\"text-ui-floor font-regular text-text-muted\">{note}</p>}\n      <div className={cn(\"mt-stack-sm font-medium text-text\", dominant ? \"text-dish-dominant\" : \"text-ui-body\")}>{children}</div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

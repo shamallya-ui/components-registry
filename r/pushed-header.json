@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pushed-header",
+  "title": "Pushed header",
+  "description": "Back link, h1, meta, tick slot (KMP-C3).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+    "https://shamallya-ui.github.io/components-registry/r/back-link.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/pushed-header.tsx",
+      "content": "import { forwardRef, type ReactNode } from \"react\";\nimport { BackLink, type BackLinkProps } from \"./back-link\";\n\n// KMP-C3 (specs/KMP-C3-pushed-header.md). Back link, the screen's h1, optional meta line, optional cooked tick (KMP-C11, a slot).\n// The h1 is the focus target after navigation: it takes programmatic focus (tabindex -1), so pass a ref and focus it.\n// Top padding is the token padding plus the platform top inset (conventions 15); the app must opt in to viewport-fit cover.\n\nexport type PushedHeaderProps = {\n  back: BackLinkProps;\n  title: string;\n  titleLang?: string;\n  /** Role, Kannada name, page. Not rendered when empty. */\n  meta?: ReactNode;\n  /** Only on the four Dish screens; absent on Add to a meal and Settings. */\n  tick?: ReactNode;\n};\n\nexport const PushedHeader = forwardRef<HTMLHeadingElement, PushedHeaderProps>(function PushedHeader({ back, title, titleLang, meta, tick }, ref) {\n  return (\n    <header className=\"border-b-bw-default border-border bg-surface-raised px-inset-md pb-inset-md pt-[calc(env(safe-area-inset-top)+var(--shamallya-semantic-space-inset-md))] font-body leading-normal\">\n      <BackLink {...back} />\n      <div className=\"flex items-start justify-between gap-gap-md\">\n        <div className=\"min-w-0 flex-1\">\n          <h1\n            ref={ref}\n            tabIndex={-1}\n            lang={titleLang}\n            className=\"text-ui-title font-semibold text-text [outline-style:none] [overflow-wrap:anywhere]\"\n          >\n            {title}\n          </h1>\n          {meta && <p className=\"text-ui-floor font-regular text-text-muted\">{meta}</p>}\n        </div>\n        {tick && <div className=\"shrink-0\">{tick}</div>}\n      </div>\n    </header>\n  );\n});\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shamallya-cn",
+  "title": "cn helper",
+  "description": "clsx wrapper. Deliberately not tailwind-merge: it does not know the token utilities.",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/lib/cn.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\n\n// No tailwind-merge: it does not know the token utilities and would drop classes that look like conflicts.\nexport const cn = (...inputs: ClassValue[]) => clsx(inputs);\n",
+      "type": "registry:lib",
+      "target": "src/lib/cn.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

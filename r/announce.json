@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "announce",
+  "title": "Announce live region",
+  "description": "Provider plus announce(): one polite status region, 500 ms trailing debounce.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/components/announce.tsx",
+      "content": "import { createContext, useCallback, useContext, useEffect, useRef, type ReactNode } from \"react\";\n\n// Shared live-region utility (specs/_conventions.md section 13).\n// One visually hidden, polite, atomic status region per screen shell. Callers supply the wording.\n\nexport const SETTLE_MS = 500;\n\ntype Announce = (message: string) => void;\n\nconst AnnounceContext = createContext<Announce | null>(null);\n// Mounted providers, newest last. Serves the standalone `announce` export, which has no React context.\nconst mounted: Announce[] = [];\n\nconst warn = (text: string) => {\n  if (import.meta.env.DEV) console.warn(`[announce] ${text}`);\n};\n\nexport function AnnounceProvider({ children }: { children: ReactNode }) {\n  const nested = useContext(AnnounceContext) !== null;\n  const region = useRef<HTMLDivElement>(null);\n  const timer = useRef<ReturnType<typeof setTimeout>>();\n\n  const announce = useCallback<Announce>((message) => {\n    if (!message) return; // empty is ignored and does not cancel a pending message\n    clearTimeout(timer.current);\n    timer.current = setTimeout(() => {\n      const el = region.current;\n      if (!el) return;\n      // Clear first, then set, so an identical message is a fresh change.\n      el.textContent = \"\";\n      el.textContent = message;\n    }, SETTLE_MS);\n  }, []);\n\n  useEffect(() => {\n    if (nested) {\n      warn(\"Nested AnnounceProvider ignored: one provider per screen shell. The outer region is used.\");\n      return;\n    }\n    mounted.push(announce);\n    return () => {\n      clearTimeout(timer.current); // teardown cancels pending announcements\n      mounted.splice(mounted.indexOf(announce), 1);\n    };\n  }, [announce, nested]);\n\n  if (nested) return <>{children}</>;\n  return (\n    <AnnounceContext.Provider value={announce}>\n      {children}\n      <div ref={region} role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" className=\"sr-only\" />\n    </AnnounceContext.Provider>\n  );\n}\n\nconst noProvider: Announce = () => warn(\"announce() called with no AnnounceProvider mounted; nothing was announced.\");\n\n/** Announce bound to the nearest provider. Prefer this inside components. */\nexport function useAnnounce(): Announce {\n  const bound = useContext(AnnounceContext);\n  return bound ?? noProvider;\n}\n\n/** Standalone announce for non-component callers: routes to the newest mounted provider. */\nexport const announce: Announce = (message) => (mounted.at(-1) ?? noProvider)(message);\n\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

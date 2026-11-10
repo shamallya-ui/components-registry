@@ -1,0 +1,522 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shamallya",
+  "homepage": "https://github.com/shamallya-ui",
+  "items": [
+    {
+      "name": "shamallya-cn",
+      "type": "registry:lib",
+      "title": "cn helper",
+      "description": "clsx wrapper. Deliberately not tailwind-merge: it does not know the token utilities.",
+      "dependencies": [
+        "clsx"
+      ],
+      "files": [
+        {
+          "path": "src/lib/cn.ts",
+          "type": "registry:lib",
+          "target": "src/lib/cn.ts"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "shamallya-theme",
+      "type": "registry:file",
+      "title": "Token mapping and Tailwind additions",
+      "description": "shadcn variable mapping and the Tailwind extension for ShaMallya tokens.",
+      "docs": "Installs @shamallya-ui/tokens 0.5.0. Import its CSS before Tailwind (tokens.css, then themes/slate-teal), and tailwind.config presets: [tokensPreset, shamallya] from ./tailwind.shamallya. Import src/styles/shamallya-mapping.css once. Tailwind 3.4.",
+      "dependencies": [
+        "@shamallya-ui/tokens@0.5.0",
+        "tailwindcss@3.4.19"
+      ],
+      "files": [
+        {
+          "path": "src/styles/mapping.css",
+          "type": "registry:file",
+          "target": "src/styles/shamallya-mapping.css"
+        },
+        {
+          "path": "tailwind.shamallya.ts",
+          "type": "registry:file",
+          "target": "~/tailwind.shamallya.ts"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "announce",
+      "type": "registry:ui",
+      "title": "Announce live region",
+      "description": "Provider plus announce(): one polite status region, 500 ms trailing debounce.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/announce.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Primary, outline, ghost, quiet and the disclosure button (KMP-C18, C20, C21).",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon button",
+      "description": "Icon-only link or button (KMP-C32).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/icon-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "filter-chip",
+      "type": "registry:ui",
+      "title": "Filter chip group",
+      "description": "Single-select radio group styled as chips (KMP-C23).",
+      "dependencies": [
+        "@radix-ui/react-radio-group"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/filter-chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "day-accordion",
+      "type": "registry:ui",
+      "title": "Day accordion",
+      "description": "Single-open collapsible list (KMP-C24).",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/day-accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "setting-switch",
+      "type": "registry:ui",
+      "title": "Setting switch",
+      "description": "Native checkbox with the switch role (KMP-C28).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/setting-switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "schedule-field",
+      "type": "registry:ui",
+      "title": "Schedule field",
+      "description": "Native select pair in a group (KMP-C29).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/schedule-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search field",
+      "description": "Native search input with clear button (KMP-C22).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/search-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "caption",
+      "type": "registry:ui",
+      "title": "Caption",
+      "description": "Four-variant muted caption (KMP-C6).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/caption.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "inert-reason-block",
+      "type": "registry:ui",
+      "title": "Inert reason block",
+      "description": "Replaces an unavailable control (KMP-C31).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/inert-reason-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "frozen-week-block",
+      "type": "registry:ui",
+      "title": "Frozen-week block",
+      "description": "Constant-copy block for the current week (KMP-C14).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/frozen-week-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "back-link",
+      "type": "registry:ui",
+      "title": "Back link",
+      "description": "Ghost link with 'Back to {origin}' name (KMP-C4).",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/back-link.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "next-week-notice",
+      "type": "registry:ui",
+      "title": "Next-week notice",
+      "description": "Neutral dismissible notice (KMP-C27).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/next-week-notice.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slot-picker-row",
+      "type": "registry:ui",
+      "title": "Slot picker row",
+      "description": "Assign-on-press row (KMP-C25).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/slot-picker-row.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "grouped-list-card",
+      "type": "registry:ui",
+      "title": "Grouped list card",
+      "description": "Card holding a list of rows (KMP-C7).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/grouped-list-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "day-row",
+      "type": "registry:ui",
+      "title": "Day row",
+      "description": "Week day row and list (KMP-C13).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/day-row.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "section-heading",
+      "type": "registry:ui",
+      "title": "Section heading",
+      "description": "Real heading in the uppercase label style (KMP-C5).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/section-heading.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "list-row",
+      "type": "registry:ui",
+      "title": "List row",
+      "description": "Link row for a grouped list card (KMP-C8).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/list-row.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slot-card",
+      "type": "registry:ui",
+      "title": "Slot card",
+      "description": "Slot card with dominant variant (KMP-C9).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/slot-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cooked-tick",
+      "type": "registry:ui",
+      "title": "Cooked tick",
+      "description": "48 px cooked toggle that announces itself (KMP-C11).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/announce.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/cooked-tick.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "week-switcher",
+      "type": "registry:ui",
+      "title": "Week switcher",
+      "description": "Two-link week navigation (KMP-C12).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/week-switcher.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pushed-header",
+      "type": "registry:ui",
+      "title": "Pushed header",
+      "description": "Back link, h1, meta, tick slot (KMP-C3).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/back-link.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/pushed-header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "zero-results",
+      "type": "registry:ui",
+      "title": "Zero-results state",
+      "description": "Statement, coverage sentences and one action (KMP-C30).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/zero-results.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "regenerate-sheet",
+      "type": "registry:ui",
+      "title": "Regenerate sheet",
+      "description": "Radix Dialog bottom sheet without a scrim (KMP-C26).",
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/regenerate-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "screen-header",
+      "type": "registry:ui",
+      "title": "Screen header",
+      "description": "Tab-screen header on the canvas (KMP-C2).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/screen-header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tab-bar",
+      "type": "registry:ui",
+      "title": "Tab bar",
+      "description": "Three-link bottom navigation (KMP-C1).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/tab-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-heading",
+  "title": "Section heading",
+  "description": "Real heading in the uppercase label style (KMP-C5).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/section-heading.tsx",
+      "content": "import { type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// KMP-C5 (specs/KMP-C5-section-heading.md). A real heading in the 15 px uppercase label style (Q-H1 working position).\n// Uppercase and tracking apply to Latin text by language only; the accessible name stays sentence case.\n\nexport type SectionHeadingProps = {\n  /** Sentence-case text. For mixed scripts wrap each run in its own lang-marked span. Not rendered when empty. */\n  children: ReactNode;\n  level?: 2 | 3 | 4 | 5 | 6;\n  lang?: string;\n  /** One control aligned to the end and to the first line, for example a DisclosureButton. */\n  trailing?: ReactNode;\n  className?: string;\n};\n\nexport function SectionHeading({ children, level = 2, lang, trailing, className }: SectionHeadingProps) {\n  if (children === null || children === undefined || children === false || (typeof children === \"string\" && children.trim() === \"\")) return null;\n  const H = `h${level}` as const;\n  return (\n    <div className={cn(\"mb-stack-sm mt-stack-lg flex flex-wrap items-start justify-between gap-x-gap-md gap-y-stack-sm\", className)}>\n      <H\n        lang={lang}\n        className=\"min-w-min flex-1 basis-0 font-body text-ui-floor font-semibold leading-normal text-text-muted [overflow-wrap:anywhere] latin:uppercase latin:tracking-label\"\n      >\n        {children}\n      </H>\n      {trailing && <div className=\"shrink-0\">{trailing}</div>}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
