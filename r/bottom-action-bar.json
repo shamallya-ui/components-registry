@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bottom-action-bar",
+  "title": "Bottom action bar",
+  "description": "Sticky bottom group with three equal columns (SSL-R10).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/bottom-action-bar.tsx",
+      "content": "import { type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// SSL-R10 (intake/sparky-snap-lab-2026-11-11.md). Sticky bottom bar with three equal columns (start, center, end). An empty\n// column keeps its width so the others never move. Keyboard order is DOM order, left to right.\n// Bottom padding adds the platform inset (conventions 15); the app must opt in to viewport-fit cover.\n\nexport type BottomActionBarProps = {\n  /** Name of the group landmark, for example \"Project steps\". */\n  label: string;\n  start?: ReactNode;\n  center?: ReactNode;\n  end?: ReactNode;\n  className?: string;\n};\n\nexport function BottomActionBar({ label, start, center, end, className }: BottomActionBarProps) {\n  return (\n    <div\n      role=\"group\"\n      aria-label={label}\n      className={cn(\"sticky bottom-0 z-sticky grid grid-cols-3 gap-gap-md border-t-bw-default border-border bg-surface-raised px-inset-md pt-inset-md pb-[calc(env(safe-area-inset-bottom)+var(--shamallya-semantic-space-inset-md))] font-body leading-normal\", className)}\n    >\n      {[start, center, end].map((slot, i) => (\n        <div key={i} className=\"min-w-0 [&>*]:w-full\">\n          {slot}\n        </div>\n      ))}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

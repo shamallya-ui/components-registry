@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-dots",
+  "title": "Progress dots",
+  "description": "One dot per step, filled to the current one; hidden Step N of M (SSL-R11).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/progress-dots.tsx",
+      "content": "import { cn } from \"@/lib/cn\";\n\n// SSL-R11 (intake/sparky-snap-lab-2026-11-11.md). One dot per step, filled up to the current step, for pre-readers.\n// The dots are hidden from assistive technology; a visually hidden \"Step N of M\" carries the meaning.\n\nexport type ProgressDotsProps = {\n  /** 1-based. */\n  current: number;\n  total: number;\n  className?: string;\n};\n\nexport function ProgressDots({ current, total, className }: ProgressDotsProps) {\n  return (\n    <div className={cn(\"flex items-center gap-gap-sm\", className)}>\n      <span className=\"sr-only\">{`Step ${current} of ${total}`}</span>\n      {Array.from({ length: total }, (_, i) => (\n        <span\n          key={i}\n          aria-hidden=\"true\"\n          className={cn(\"size-dot rounded-pill border-bw-default\", i < current ? \"border-primary bg-primary forced-color-adjust-none forced-colors:bg-[Highlight]\" : \"border-border-strong bg-surface-raised\")}\n        />\n      ))}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

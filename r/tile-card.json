@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tile-card",
+  "title": "Tile card",
+  "description": "Link tile: emoji, number badge, title, status marks; press-down (SSL-R6).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/tile-card.tsx",
+      "content": "import { type MouseEventHandler, type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// SSL-R6 (intake/sparky-snap-lab-2026-11-11.md). A project tile: one link whose whole area is the target. Big emoji, number\n// badge in the corner, title, a row of small status marks. Pressing moves the tile down onto its hard shadow (no transition).\n// The badge comes first in the DOM, so the name reads \"4 Lamp\"; the explicit spaces keep it so without layout (jsdom), the flex layout drops them.\n\n// inline (not absolute, not inline-block) clipped text, so it stays in the same text run as the part before it and the name reads \"4, Lamp\" with no space before the comma (as list-row.tsx)\nconst comma = \"[clip-path:inset(50%)]\";\n\nexport type TileCardProps = {\n  href: string;\n  /** Decorative; the title names the tile. */\n  emoji: string;\n  /** Shown in the corner badge, for example the project number. */\n  number?: number | string;\n  title: string;\n  titleLang?: string;\n  /** Small status marks (level dots, a star), supplied by the consumer. Hidden from assistive technology unless they carry text. */\n  marks?: ReactNode;\n  onClick?: MouseEventHandler<HTMLAnchorElement>;\n  className?: string;\n};\n\nexport function TileCard({ href, emoji, number, title, titleLang, marks, onClick, className }: TileCardProps) {\n  return (\n    <a\n      href={href}\n      onClick={onClick}\n      className={cn(\n        \"relative flex min-h-control-kid flex-col items-center gap-stack-sm rounded-card border-bw-heavy border-text bg-surface-raised p-inset-md text-center font-body leading-normal text-text no-underline shadow-hard\",\n        // shortcut: 4 px (the space.1 step) press-down, not the requested 3 px; the lint allows no literal length\n        \"active:translate-y-1 active:shadow-none\",\n        \"focus-visible:outline focus-visible:outline-ring focus-visible:outline-offset-ring focus-visible:outline-focus-ring\",\n        className,\n      )}\n    >\n      {number !== undefined && (\n        <span className=\"absolute end-inset-sm top-inset-sm inline-flex h-6 min-w-6 items-center justify-center rounded-pill bg-primary px-1 text-ui-floor font-label text-primary-on\">\n          <span>\n            {number}\n            <span className={comma}>,</span>\n          </span>\n        </span>\n      )}{\" \"}\n      <span aria-hidden=\"true\" className=\"text-ui-numeral\">\n        {emoji}\n      </span>\n      <span lang={titleLang} className=\"text-ui-body font-heading-strong [overflow-wrap:anywhere]\">\n        {title}\n        {marks && <span className={comma}>,</span>}\n      </span>{\" \"}\n      {marks && <span className=\"flex items-center gap-gap-sm\">{marks}</span>}\n    </a>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

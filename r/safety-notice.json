@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "safety-notice",
+  "title": "Safety notice",
+  "description": "Button with aria-expanded toggling a warning box around the consumer's list (SSL-R8).",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+    "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+    "https://shamallya-ui.github.io/components-registry/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/safety-notice.tsx",
+      "content": "import { useId, useState, type ReactNode } from \"react\";\nimport { Button } from \"./button\";\nimport { cn } from \"@/lib/cn\";\n\n// SSL-R8 (intake/sparky-snap-lab-2026-11-11.md). An outline Button with aria-expanded toggles a warning-surface box that holds\n// the consumer's list (a real ul). The box stays in the DOM (hidden) so aria-controls always resolves.\n\nexport type SafetyNoticeProps = {\n  /** Button label, for example \"Safety rules\". */\n  label: string;\n  /** The rules, as a ul. */\n  children: ReactNode;\n  defaultOpen?: boolean;\n  className?: string;\n};\n\nexport function SafetyNotice({ label, children, defaultOpen = false, className }: SafetyNoticeProps) {\n  const [open, setOpen] = useState(defaultOpen);\n  const id = useId();\n  return (\n    <div className={cn(\"flex flex-col items-start gap-stack-sm font-body leading-normal\", className)}>\n      <Button variant=\"outline\" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>\n        {label}\n      </Button>\n      <div\n        id={id}\n        hidden={!open}\n        className=\"w-full rounded-card border-bw-default border-warning bg-warning-subtle p-inset-md text-ui-reading text-warning-text [&_ul]:list-disc [&_ul]:ps-inset-md\"\n      >\n        {children}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

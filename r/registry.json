@@ -517,6 +517,143 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "speech-bubble",
+      "type": "registry:ui",
+      "title": "Speech bubble",
+      "description": "Comic bubble: say, party, info; optional tail on the left (SSL-R4).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/speech-bubble.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "mascot",
+      "type": "registry:ui",
+      "title": "Mascot",
+      "description": "Inlines an SVG character fetched by URL; sticky; exposes --mouth (SSL-R5).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/mascot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bottom-action-bar",
+      "type": "registry:ui",
+      "title": "Bottom action bar",
+      "description": "Sticky bottom group with three equal columns (SSL-R10).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/bottom-action-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tile-card",
+      "type": "registry:ui",
+      "title": "Tile card",
+      "description": "Link tile: emoji, number badge, title, status marks; press-down (SSL-R6).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/tile-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-toggle",
+      "type": "registry:ui",
+      "title": "Icon toggle",
+      "description": "Toggle button with aria-pressed, two icons and two labels (SSL-R2).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/icon-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glossary-card",
+      "type": "registry:ui",
+      "title": "Glossary card",
+      "description": "Emoji, name, id and What? Why? How? with a colour bar (SSL-R7).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/glossary-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "safety-notice",
+      "type": "registry:ui",
+      "title": "Safety notice",
+      "description": "Button with aria-expanded toggling a warning box around the consumer's list (SSL-R8).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json",
+        "https://shamallya-ui.github.io/components-registry/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/safety-notice.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress-dots",
+      "type": "registry:ui",
+      "title": "Progress dots",
+      "description": "One dot per step, filled to the current one; hidden Step N of M (SSL-R11).",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
+        "https://shamallya-ui.github.io/components-registry/r/shamallya-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/progress-dots.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
