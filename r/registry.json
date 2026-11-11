@@ -25,9 +25,9 @@
       "type": "registry:file",
       "title": "Token mapping and Tailwind additions",
       "description": "shadcn variable mapping and the Tailwind extension for ShaMallya tokens.",
-      "docs": "Installs @shamallya-ui/tokens 0.5.0. Setup (verified on a fresh Vite + React + TypeScript + Tailwind 3.4 project): 1) alias @ to src in tsconfig paths and vite resolve.alias; 2) import '@shamallya-ui/tokens/css', then '@shamallya-ui/tokens/themes/slate-teal' (optional), then ./styles/shamallya-mapping.css, then your Tailwind CSS, in that order; 3) tailwind.config presets: [tokensPreset, shamallya] where tokensPreset is '@shamallya-ui/tokens/tailwind' and shamallya is ./tailwind.shamallya; 4) set data-brand='slate-teal' and data-density='comfortable' on the root, and use viewport-fit=cover in the viewport meta for the safe-area insets.",
+      "docs": "Installs @shamallya-ui/tokens 0.6.0. Setup (verified on a fresh Vite + React + TypeScript + Tailwind 3.4 project): 1) alias @ to src in tsconfig paths and vite resolve.alias; 2) import '@shamallya-ui/tokens/css', then '@shamallya-ui/tokens/themes/slate-teal' (optional), then ./styles/shamallya-mapping.css, then your Tailwind CSS, in that order; 3) tailwind.config presets: [tokensPreset, shamallya] where tokensPreset is '@shamallya-ui/tokens/tailwind' and shamallya is ./tailwind.shamallya; 4) set data-brand='slate-teal' and data-density='comfortable' on the root, and use viewport-fit=cover in the viewport meta for the safe-area insets; 5) load Plus Jakarta Sans from Google Fonts in your HTML head (preconnect to fonts.googleapis.com and fonts.gstatic.com, then link https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap).",
       "dependencies": [
-        "@shamallya-ui/tokens@0.5.0",
+        "@shamallya-ui/tokens@0.6.0",
         "tailwindcss@3.4.19"
       ],
       "files": [
