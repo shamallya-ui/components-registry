@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "caption",
   "title": "Caption",
-  "description": "Four-variant muted caption (KMP-C6).",
+  "description": "Four-variant muted caption.",
   "dependencies": [],
   "registryDependencies": [
     "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/components/caption.tsx",
-      "content": "import { useId, type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// KMP-C6 (specs/KMP-C6-caption.md). One paragraph of muted text in four variants. Not interactive, not a live region.\n// An under-action caption must be the description of the button above it: pass its id as that button's aria-describedby.\n\nexport type CaptionProps = {\n  variant: \"under-action\" | \"group-note\" | \"coverage\" | \"prose\";\n  children: ReactNode;\n  /** Supplied or generated; other components reference it. */\n  id?: string;\n  lang?: string;\n  className?: string;\n};\n\nconst variants = {\n  \"under-action\": \"text-center text-ui-floor\",\n  \"group-note\": \"text-start text-ui-floor\",\n  coverage: \"text-start text-ui-floor\",\n  prose: \"text-start text-ui-reading\",\n} as const;\n\nconst isEmpty = (c: ReactNode) => c === null || c === undefined || c === false || (typeof c === \"string\" && c.trim() === \"\");\n\nexport function Caption({ variant, children, id, lang, className }: CaptionProps) {\n  const auto = useId();\n  if (isEmpty(children)) return null; // a caption with nothing to say does not exist\n  return (\n    <p id={id ?? auto} lang={lang} className={cn(\"font-body font-regular leading-normal text-text-muted [overflow-wrap:anywhere]\", variants[variant], className)}>\n      {children}\n    </p>\n  );\n}\n",
+      "content": "import { useId, type ReactNode } from \"react\";\nimport { cn } from \"@/lib/cn\";\n\n// One paragraph of muted text in four variants. Not interactive, not a live region.\n// An under-action caption must be the description of the button above it: pass its id as that button's aria-describedby.\n\nexport type CaptionProps = {\n  variant: \"under-action\" | \"group-note\" | \"coverage\" | \"prose\";\n  children: ReactNode;\n  /** Supplied or generated; other components reference it. */\n  id?: string;\n  lang?: string;\n  className?: string;\n};\n\nconst variants = {\n  \"under-action\": \"text-center text-ui-floor\",\n  \"group-note\": \"text-start text-ui-floor\",\n  coverage: \"text-start text-ui-floor\",\n  prose: \"text-start text-ui-reading\",\n} as const;\n\nconst isEmpty = (c: ReactNode) => c === null || c === undefined || c === false || (typeof c === \"string\" && c.trim() === \"\");\n\nexport function Caption({ variant, children, id, lang, className }: CaptionProps) {\n  const auto = useId();\n  if (isEmpty(children)) return null; // a caption with nothing to say does not exist\n  return (\n    <p id={id ?? auto} lang={lang} className={cn(\"font-body font-regular leading-normal text-text-muted [overflow-wrap:anywhere]\", variants[variant], className)}>\n      {children}\n    </p>\n  );\n}\n",
       "type": "registry:ui"
     }
   ],

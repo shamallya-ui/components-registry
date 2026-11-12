@@ -62,7 +62,7 @@
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Primary, outline, ghost, quiet and the disclosure button (KMP-C18, C20, C21).",
+      "description": "Primary, outline, ghost, quiet and the disclosure button.",
       "dependencies": [
         "@radix-ui/react-slot",
         "lucide-react"
@@ -82,7 +82,7 @@
       "name": "icon-button",
       "type": "registry:ui",
       "title": "Icon button",
-      "description": "Icon-only link or button (KMP-C32).",
+      "description": "Icon-only link or button.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -99,7 +99,7 @@
       "name": "filter-chip",
       "type": "registry:ui",
       "title": "Filter chip group",
-      "description": "Single-select radio group styled as chips (KMP-C23).",
+      "description": "Single-select radio group styled as chips.",
       "dependencies": [
         "@radix-ui/react-radio-group"
       ],
@@ -118,7 +118,7 @@
       "name": "day-accordion",
       "type": "registry:ui",
       "title": "Day accordion",
-      "description": "Single-open collapsible list (KMP-C24).",
+      "description": "Single-open collapsible list.",
       "dependencies": [
         "@radix-ui/react-accordion",
         "lucide-react"
@@ -138,7 +138,7 @@
       "name": "setting-switch",
       "type": "registry:ui",
       "title": "Setting switch",
-      "description": "Native checkbox with the switch role (KMP-C28).",
+      "description": "Native checkbox with the switch role.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -155,7 +155,7 @@
       "name": "schedule-field",
       "type": "registry:ui",
       "title": "Schedule field",
-      "description": "Native select pair in a group (KMP-C29).",
+      "description": "Native select pair in a group.",
       "dependencies": [
         "lucide-react"
       ],
@@ -174,7 +174,7 @@
       "name": "search-field",
       "type": "registry:ui",
       "title": "Search field",
-      "description": "Native search input with clear button (KMP-C22).",
+      "description": "Native search input with clear button.",
       "dependencies": [
         "lucide-react"
       ],
@@ -193,7 +193,7 @@
       "name": "caption",
       "type": "registry:ui",
       "title": "Caption",
-      "description": "Four-variant muted caption (KMP-C6).",
+      "description": "Four-variant muted caption.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -210,7 +210,7 @@
       "name": "inert-reason-block",
       "type": "registry:ui",
       "title": "Inert reason block",
-      "description": "Replaces an unavailable control (KMP-C31).",
+      "description": "Replaces an unavailable control.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -227,7 +227,7 @@
       "name": "frozen-week-block",
       "type": "registry:ui",
       "title": "Frozen-week block",
-      "description": "Constant-copy block for the current week (KMP-C14).",
+      "description": "Constant-copy block for the current week.",
       "dependencies": [
         "lucide-react"
       ],
@@ -246,7 +246,7 @@
       "name": "back-link",
       "type": "registry:ui",
       "title": "Back link",
-      "description": "Ghost link with 'Back to {origin}' name (KMP-C4).",
+      "description": "Ghost link with 'Back to {origin}' name.",
       "dependencies": [
         "@radix-ui/react-slot",
         "lucide-react"
@@ -267,7 +267,7 @@
       "name": "next-week-notice",
       "type": "registry:ui",
       "title": "Next-week notice",
-      "description": "Neutral dismissible notice (KMP-C27).",
+      "description": "Neutral dismissible notice.",
       "dependencies": [
         "lucide-react"
       ],
@@ -287,7 +287,7 @@
       "name": "slot-picker-row",
       "type": "registry:ui",
       "title": "Slot picker row",
-      "description": "Assign-on-press row (KMP-C25).",
+      "description": "Assign-on-press row.",
       "dependencies": [
         "lucide-react"
       ],
@@ -306,7 +306,7 @@
       "name": "grouped-list-card",
       "type": "registry:ui",
       "title": "Grouped list card",
-      "description": "Card holding a list of rows (KMP-C7).",
+      "description": "Card holding a list of rows.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -323,7 +323,7 @@
       "name": "day-row",
       "type": "registry:ui",
       "title": "Day row",
-      "description": "Week day row and list (KMP-C13).",
+      "description": "Week day row and list.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -340,7 +340,7 @@
       "name": "section-heading",
       "type": "registry:ui",
       "title": "Section heading",
-      "description": "Real heading in the uppercase label style (KMP-C5).",
+      "description": "Real heading in the uppercase label style.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -357,7 +357,7 @@
       "name": "list-row",
       "type": "registry:ui",
       "title": "List row",
-      "description": "Link row for a grouped list card (KMP-C8).",
+      "description": "Link row for a grouped list card.",
       "dependencies": [
         "lucide-react"
       ],
@@ -376,7 +376,7 @@
       "name": "slot-card",
       "type": "registry:ui",
       "title": "Slot card",
-      "description": "Slot card with dominant variant (KMP-C9).",
+      "description": "Slot card with dominant variant.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -393,7 +393,7 @@
       "name": "cooked-tick",
       "type": "registry:ui",
       "title": "Cooked tick",
-      "description": "48 px cooked toggle that announces itself (KMP-C11).",
+      "description": "48 px cooked toggle that announces itself.",
       "dependencies": [
         "lucide-react"
       ],
@@ -413,7 +413,7 @@
       "name": "week-switcher",
       "type": "registry:ui",
       "title": "Week switcher",
-      "description": "Two-link week navigation (KMP-C12).",
+      "description": "Two-link week navigation.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -430,7 +430,7 @@
       "name": "pushed-header",
       "type": "registry:ui",
       "title": "Pushed header",
-      "description": "Back link, h1, meta, tick slot (KMP-C3).",
+      "description": "Back link, h1, meta, tick slot.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -448,7 +448,7 @@
       "name": "zero-results",
       "type": "registry:ui",
       "title": "Zero-results state",
-      "description": "Statement, coverage sentences and one action (KMP-C30).",
+      "description": "Statement, coverage sentences and one action.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -466,7 +466,7 @@
       "name": "regenerate-sheet",
       "type": "registry:ui",
       "title": "Regenerate sheet",
-      "description": "Radix Dialog bottom sheet without a scrim (KMP-C26).",
+      "description": "Radix Dialog bottom sheet without a scrim.",
       "dependencies": [
         "@radix-ui/react-dialog"
       ],
@@ -486,7 +486,7 @@
       "name": "screen-header",
       "type": "registry:ui",
       "title": "Screen header",
-      "description": "Tab-screen header on the canvas (KMP-C2).",
+      "description": "Tab-screen header on the canvas.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -503,7 +503,7 @@
       "name": "tab-bar",
       "type": "registry:ui",
       "title": "Tab bar",
-      "description": "Three-link bottom navigation (KMP-C1).",
+      "description": "Three-link bottom navigation.",
       "dependencies": [
         "lucide-react"
       ],
@@ -522,7 +522,7 @@
       "name": "speech-bubble",
       "type": "registry:ui",
       "title": "Speech bubble",
-      "description": "Comic bubble: say, party, info; optional tail on the left (SSL-R4).",
+      "description": "Comic bubble: say, party, info; optional tail on the left.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -539,7 +539,7 @@
       "name": "mascot",
       "type": "registry:ui",
       "title": "Mascot",
-      "description": "Inlines an SVG character fetched by URL; sticky; exposes --mouth (SSL-R5).",
+      "description": "Inlines an SVG character fetched by URL; sticky; exposes --mouth.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -556,7 +556,7 @@
       "name": "bottom-action-bar",
       "type": "registry:ui",
       "title": "Bottom action bar",
-      "description": "Sticky bottom group with three equal columns (SSL-R10).",
+      "description": "Sticky bottom group with three equal columns.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -573,7 +573,7 @@
       "name": "tile-card",
       "type": "registry:ui",
       "title": "Tile card",
-      "description": "Link tile: emoji, number badge, title, status marks; press-down (SSL-R6).",
+      "description": "Link tile: emoji, number badge, title, status marks; press-down.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -590,7 +590,7 @@
       "name": "icon-toggle",
       "type": "registry:ui",
       "title": "Icon toggle",
-      "description": "Toggle button with aria-pressed, two icons and two labels (SSL-R2).",
+      "description": "Toggle button with aria-pressed, two icons and two labels.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -607,7 +607,7 @@
       "name": "glossary-card",
       "type": "registry:ui",
       "title": "Glossary card",
-      "description": "Emoji, name, id and What? Why? How? with a colour bar (SSL-R7).",
+      "description": "Emoji, name, id and What? Why? How? with a colour bar.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -624,7 +624,7 @@
       "name": "safety-notice",
       "type": "registry:ui",
       "title": "Safety notice",
-      "description": "Button with aria-expanded toggling a warning box around the consumer's list (SSL-R8).",
+      "description": "Button with aria-expanded toggling a warning box around the consumer's list.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",
@@ -642,7 +642,7 @@
       "name": "progress-dots",
       "type": "registry:ui",
       "title": "Progress dots",
-      "description": "One dot per step, filled to the current one; hidden Step N of M (SSL-R11).",
+      "description": "One dot per step, filled to the current one; hidden Step N of M.",
       "dependencies": [],
       "registryDependencies": [
         "https://shamallya-ui.github.io/components-registry/r/shamallya-cn.json",

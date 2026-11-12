@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "back-link",
   "title": "Back link",
-  "description": "Ghost link with 'Back to {origin}' name (KMP-C4).",
+  "description": "Ghost link with 'Back to {origin}' name.",
   "dependencies": [
     "@radix-ui/react-slot",
     "lucide-react"
@@ -15,7 +15,7 @@
   "files": [
     {
       "path": "src/components/back-link.tsx",
-      "content": "import { ChevronLeft } from \"lucide-react\";\nimport { Button } from \"./button\";\n\n// KMP-C4 (specs/KMP-C4-back-link.md). A link with ghost Button visuals. The visible label is the origin; the\n// accessible name is \"Back to {origin}\" (hidden prefix) so the visible label is contained in the name.\n// Place it on a raised surface only: primary.text is under 7:1 on the canvas.\n\nexport type BackLinkProps = {\n  /** Where the screen was opened from: \"Today\", \"Week\", \"Search\" or a dish name. Shown verbatim, never truncated. */\n  origin: string;\n  /** Language of the origin text. */\n  originLang?: string;\n  href: string;\n  /** Hidden prefix of the accessible name; a space follows it. */\n  prefix?: string;\n  onClick?: React.MouseEventHandler<HTMLAnchorElement>;\n};\n\nexport function BackLink({ origin, originLang, href, prefix = \"Back to\", onClick }: BackLinkProps) {\n  return (\n    <Button variant=\"ghost\" asChild>\n      <a href={href} onClick={onClick}>\n        <span aria-hidden=\"true\" className=\"inline-flex size-icon-sm shrink-0\">\n          <ChevronLeft className=\"size-full\" />\n        </span>\n        <span>\n          {/* inline hidden text (not absolute), so the name reads \"Back to Today\" with one space */}\n          <span className=\"inline-block size-px overflow-hidden whitespace-pre [clip-path:inset(50%)]\">{prefix}</span>\n          {\" \"}\n          <span lang={originLang}>{origin}</span>\n        </span>\n      </a>\n    </Button>\n  );\n}\n",
+      "content": "import { ChevronLeft } from \"lucide-react\";\nimport { Button } from \"./button\";\n\n// A link with ghost Button visuals. The visible label is the origin; the\n// accessible name is \"Back to {origin}\" (hidden prefix) so the visible label is contained in the name.\n// Place it on a raised surface only: primary.text is under 7:1 on the canvas.\n\nexport type BackLinkProps = {\n  /** Where the screen was opened from: \"Today\", \"Week\", \"Search\" or a dish name. Shown verbatim, never truncated. */\n  origin: string;\n  /** Language of the origin text. */\n  originLang?: string;\n  href: string;\n  /** Hidden prefix of the accessible name; a space follows it. */\n  prefix?: string;\n  onClick?: React.MouseEventHandler<HTMLAnchorElement>;\n};\n\nexport function BackLink({ origin, originLang, href, prefix = \"Back to\", onClick }: BackLinkProps) {\n  return (\n    <Button variant=\"ghost\" asChild>\n      <a href={href} onClick={onClick}>\n        <span aria-hidden=\"true\" className=\"inline-flex size-icon-sm shrink-0\">\n          <ChevronLeft className=\"size-full\" />\n        </span>\n        <span>\n          {/* inline hidden text (not absolute), so the name reads \"Back to Today\" with one space */}\n          <span className=\"inline-block size-px overflow-hidden whitespace-pre [clip-path:inset(50%)]\">{prefix}</span>\n          {\" \"}\n          <span lang={originLang}>{origin}</span>\n        </span>\n      </a>\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ],
